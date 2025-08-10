@@ -10,14 +10,14 @@ module DFF_Synchronizer #(parameter ADDR_SIZE = 4)
  reg [ADDR_SIZE:0] ptr_ff1;
  
  always@(posedge clk or negedge rst_n) begin
-    if(!rst_n) ptr_ff1<= 0;
-    else ptr_ff1<= ptr;
+  if(!rst_n) begin
+   ptr_ff1<= 0;
+   ptr_out<= 0;
+  end
+  else begin
+   ptr_ff1<= ptr;
+   ptr_out<= ptr_ff1;
+  end
  end
- 
- always@(posedge clk or negedge rst_n) begin
-    if(!rst_n) ptr_out<= 0;
-    else ptr_out<= ptr_ff1;
- end
-    
     
 endmodule

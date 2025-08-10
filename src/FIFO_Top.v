@@ -11,8 +11,7 @@ module FIFO_Top #(parameter ADDRSIZE = 4,
  input [DATASIZE-1:0] wdata,
  output [DATASIZE-1:0] rdata,
  output full,
- output empty
-);
+ output empty);
 
 wire wen;
 wire [ADDRSIZE-1:0] raddr;
